@@ -1,7 +1,7 @@
 const contactsList = document.getElementById("contactsList");
 const searchInput = document.getElementById("search");
 const newContactBtn = document.querySelector(".new-contact-btn");
-
+const newEditBtn = document.querySelector(".edit");
 // Store contacts locally
 let contacts = [];
 let selectedContact = document.getElementById("detailId").innerText;
@@ -24,6 +24,20 @@ async function fetchContacts() {
     console.log("hai");
     console.log(contacts);
     renderContacts(contacts);
+    if (contacts.length > 0) {
+      const firstContact = contacts[0];
+      selectedContact = firstContact.id;
+      document.querySelector(".details-panel img").src = firstContact.avatar;
+      document.getElementById("detailName").innerText = firstContact.name;
+      document.getElementById("detailPhone").innerText = firstContact.phone;
+      document.getElementById("detailEmail").innerText = firstContact.email;
+    } else {
+      document.querySelector(".details-panel img").src =
+        "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+      document.getElementById("detailName").innerText = "Deleted";
+      document.getElementById("detailPhone").innerText = "";
+      document.getElementById("detailEmail").innerText = "";
+    }
   } catch (error) {
     console.error("Error fetching contacts:", error);
     contactsList.innerHTML = "<p>Failed to load contacts.</p>";
@@ -79,6 +93,11 @@ searchInput.addEventListener("input", (e) => {
 newContactBtn.addEventListener("click", () => {
   const name = prompt("Enter name:");
   const phone = prompt("Enter phone:");
+  const phoneRegex = /^\d{10}$/;
+  if (!phone.match(phoneRegex)) {
+    alert("Invalid phone number!");
+    return;
+  }
   const email = prompt("Enter email:");
   const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (!email.match(emailPattern)) {
@@ -98,6 +117,41 @@ newContactBtn.addEventListener("click", () => {
   contacts.push(newContact);
   renderContacts(contacts);
 });
+
+newEditBtn.addEventListener("click", () => {
+  const id = selectedContact;
+  const name = prompt("Enter name:");
+  const phone = prompt("Enter phone:");
+  const phoneRegex = /^\d{10}$/;
+  if (!phone.match(phoneRegex)) {
+    alert("Invalid phone number!");
+    return;
+  }
+  const email = prompt("Enter email:");
+  const avatar = `https://i.pravatar.cc/50?u=${id}`;
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    alert("Invalid email format!");
+    return;
+  }
+  if (!name || !phone || !email) return alert("All fields are required!");
+  const index = contacts.findIndex((contact) => contact.id == id);
+  if (index == -1) {
+    console.log("Contact not found");
+    return;
+  }
+  contacts[index] = {
+    ...contacts[index],
+    name: name || contacts[index].name,
+    phone: phone || contacts[index].phone,
+    email: email || contacts[index].email,
+    username: name
+      ? name.toLowerCase().replace(/\s+/g, "")
+      : contacts[index].username,
+  };
+  renderContacts(contacts);
+});
+
 document.querySelector(".delete").addEventListener("click", () => {
   if (!selectedContact) {
     alert("Please select a contact first!");

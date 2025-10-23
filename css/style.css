@@ -166,6 +166,8 @@ body {
 .actions .call { background-color: #27ae60; color: white; }
 .actions .email { background-color: #2980b9; color: white; }
 .actions .chat { background-color: #f39c12; color: white; }
+.actions .delete{ background-color: #be3d19; color: white; }
+.actions .edit{ background-color: #a4ac14; color: white; }
 
 .actions button:hover {
   opacity: 0.8;
