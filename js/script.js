@@ -17,7 +17,6 @@ async function fetchContacts() {
       name: c.name,
       phone: c.phone,
       email: c.email,
-      //   role: c.company?.catchPhrase || "No role",
       username: c.username,
       avatar: `https://i.pravatar.cc/50?u=${c.id}`,
     }));
@@ -76,7 +75,6 @@ newContactBtn.addEventListener("click", () => {
   const name = prompt("Enter name:");
   const phone = prompt("Enter phone:");
   const email = prompt("Enter email:");
-  const role = prompt("Enter role:");
   if (!name || !phone || !email) return alert("All fields are required!");
 
   const newContact = {
@@ -84,7 +82,6 @@ newContactBtn.addEventListener("click", () => {
     name,
     phone,
     email,
-    role: role || "No role",
     username: name.toLowerCase().replace(/\s+/g, ""),
     avatar: `https://i.pravatar.cc/50?u=${contacts.length + 1}`,
   };
