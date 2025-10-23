@@ -1,0 +1,172 @@
+/* Reset & body */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+  display: flex;
+  height: 100vh;
+}
+
+/* Layout */
+.app-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #2575fc;
+  color: white;
+  padding: 30px 20px;
+}
+
+.sidebar img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.sidebar h2 {
+  margin: 0 0 5px;
+}
+
+.sidebar p {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+/* Main content */
+.main-content {
+  padding: 30px 20px;
+  background-color: #f5f6fa;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.new-contact-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.new-contact-btn:hover {
+  background-color: #219150;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Contacts List */
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-card:hover {
+  background-color: #e6f0ff;
+}
+
+.contact-card img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+
+/* Details panel */
+.details-panel {
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-left: 1px solid #ddd;
+}
+
+.details-panel img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.details-panel h3 {
+  margin: 0 0 5px;
+}
+
+.details-panel p {
+  margin: 0 0 15px;
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.contact-details .contact-info div {
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions .call { background-color: #27ae60; color: white; }
+.actions .email { background-color: #2980b9; color: white; }
+.actions .chat { background-color: #f39c12; color: white; }
+
+.actions button:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonebook App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="user-profile">
+          <img src="https://i.pravatar.cc/100" alt="User Avatar" />
+          <h2>Shahina</h2>
+          <p>s@gmail.com</p>
+          <ul>
+            <li><strong>DOB:</strong> 21-09-2001</li>
+            <li><strong>Phone:</strong> 0705459542</li>
+            <li><strong>Location:</strong> Kerala</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <div class="header">
+          <h1>Address Book</h1>
+          <button class="new-contact-btn">New Contact</button>
+        </div>
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Search contacts..."
+          class="search-bar"
+        />
+
+        <div class="contacts-list" id="contactsList">
+          <!-- Contact cards will be rendered here -->
+        </div>
+      </main>
+
+      <!-- Contact details panel -->
+      <aside class="details-panel" id="detailsPanel">
+        <div class="contact-details">
+          <img src="https://i.pravatar.cc/101" alt="Contact Avatar" />
+          <h3 id="detailName">Adam</h3>
+          <p id="detailRole">Student</p>
+
+          <div class="contact-info">
+            <div>
+              <strong>Phone:</strong> <span id="detailPhone">0902366778</span>
+            </div>
+            <div>
+              <strong>Email:</strong>
+              <span id="detailEmail">a@gmail.com</span>
+            </div>
+            <div><strong>Chat:</strong> <span id="detailChat">adam</span></div>
+          </div>
+
+          <div class="actions">
+            <button class="call">
+              <i class="bi bi-telephone" style="font-size: 24px"></i>
+            </button>
+            <button class="email">
+              <i class="bi bi-envelope" style="font-size: 24px"></i>
+            </button>
+            <button class="chat">
+              <i class="bi bi-chat" style="font-size: 24px"></i>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
